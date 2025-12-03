@@ -1,0 +1,23 @@
+name: Store Frontend
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Load files
+        uses: actions/chechout@v5
+      - name: set-up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: install dependencies
+        run: npm install
+      - name: build context
+        run: npm build
+      # - name: run test
+        # run 
